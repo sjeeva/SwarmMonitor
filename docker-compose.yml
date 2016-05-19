@@ -5,7 +5,6 @@ services:
         build: dfetch
         environment:
             - DOCKER_URL=${DOCKER_URL}
-            - X_DOCKER_URL=http://52.53.214.214:4000
         volumes: 
             - dfetch-data:/data 
 
