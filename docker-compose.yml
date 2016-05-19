@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+    dfetch:
+        build: dfetch
+        environment:
+            - DOCKER_URL=${DOCKER_URL}
+            - X_DOCKER_URL=http://52.53.214.214:4000
+        volumes: 
+            - dfetch-data:/data 
+
+
+    dmonweb:
+        build: dmonweb
+        depends_on:
+            - dfetch
+        volumes: 
+            - dfetch-data:/data 
+        ports:
+            - 9090:5000
+
+volumes:
+    dfetch-data:
